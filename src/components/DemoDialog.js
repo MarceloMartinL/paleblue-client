@@ -40,6 +40,9 @@ class DemoDialog extends Component {
 
     socket.on("finish demo", () => {
       this.props.cleanDemoDots();
+      localStorage.removeItem("user_id");
+      localStorage.removeItem("token");
+      this.props.logout();
     })
   }
 
@@ -50,9 +53,6 @@ class DemoDialog extends Component {
   endDemo = () => {
     this.setState({ demoRunning: false });
     socket.emit("end demo");
-    localStorage.removeItem("user_id");
-    localStorage.removeItem("token");
-    this.props.logout();
   }
 
   handleOpen = () => {
