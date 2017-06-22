@@ -39,6 +39,7 @@ class DemoDialog extends Component {
     };
 
     socket.on("finish demo", () => {
+      this.setState({ demoRunning: false });
       this.props.cleanDemoDots();
       localStorage.removeItem("user_id");
       localStorage.removeItem("token");
@@ -51,7 +52,6 @@ class DemoDialog extends Component {
   }
 
   endDemo = () => {
-    this.setState({ demoRunning: false });
     socket.emit("end demo");
   }
 
