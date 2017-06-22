@@ -7,6 +7,7 @@ import CesiumMath from 'cesium/Source/Core/Math';
 
 const altitude = 20000000;
 const maximumZoomDistance = 25000000;
+const minimumZoomDistance = 500;
 
 let interval;
 
@@ -15,6 +16,7 @@ export default class Camera extends React.Component {
     const { userLocation } = this.props;
     const { scene } = this.props.viewer;
 
+    scene.screenSpaceCameraController.minimumZoomDistance = minimumZoomDistance;
     scene.screenSpaceCameraController.maximumZoomDistance = maximumZoomDistance;
 
     scene.camera.setView({
