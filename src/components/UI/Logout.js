@@ -3,20 +3,40 @@ import RaisedButton from "material-ui/RaisedButton";
 import { connect } from "react-redux";
 import { logout } from "../../actions/sessionActions";
 class Logout extends Component {
+  constructor() {
+    super();
+    this.state = {
+      shouldDisplay: false
+    };
+  }
+
+  componentDidMount() {
+    if (localStorage.getItem("token")) {
+      this.setState({ shouldDisplay: true });
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isAuthed) {
+      this.setState({ shouldDisplay: true });
+    }
+  }
+
   handleLogout = () => {
     localStorage.removeItem("user_id");
     localStorage.removeItem("token");
     this.props.logout();
+    this.setState({ shouldDisplay: false });
   };
 
   render() {
-    if (this.props.isAuthed || localStorage.getItem("token")) {
+    if (this.state.shouldDisplay) {
       return (
         <RaisedButton
           label="Logout"
           primary={true}
           onTouchTap={this.handleLogout}
-          style={{minWidth: 0}}
+          style={{ minWidth: 0 }}
           labelStyle={{
             fontSize: 14,
             padding: "0 10px"
