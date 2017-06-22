@@ -49,7 +49,13 @@ export function session(state = initialState, action) {
         error: action.error
       };
     case Actions.LOGOUT:
-      return initialState;
+      return {
+        data: {
+          _id: null
+        },
+        error: null,
+        isAuthed: false
+      };
     default:
       return state;
   }
