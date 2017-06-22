@@ -1,4 +1,6 @@
 import React from 'react';
+import ScreenSpaceEventHandler from 'cesium/Source/Core/ScreenSpaceEventHandler';
+import ScreenSpaceEventType from 'cesium/Source/Core/ScreenSpaceEventType';
 import Cartesian2 from 'cesium/Source/Core/Cartesian2';
 import Cartesian3 from 'cesium/Source/Core/Cartesian3';
 import CesiumMath from 'cesium/Source/Core/Math';
@@ -23,6 +25,11 @@ export default class Camera extends React.Component {
         roll: 0.0
       }
     });
+
+    const doubleClickHandler = new ScreenSpaceEventHandler(scene.canvas);
+    doubleClickHandler.setInputAction(movement => {
+      this.props.viewer.trackedEntity = undefined;
+    }, ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
     scene.camera.moveEnd.addEventListener(this.clearMapCenterInterval);
     scene.camera.moveStart.addEventListener(this.getMapCenterOnInterval);
