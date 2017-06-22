@@ -45,7 +45,7 @@ export default class CesiumGlobe extends React.Component {
       homeButton: false,
       infoBox: false,
       sceneModePicker: false,
-      selectionIndicator: true,
+      selectionIndicator: false,
       timeline: false,
       navigationHelpButton: false,
       scene3DOnly: true,

@@ -1,10 +1,13 @@
 import React from 'react';
+import ScreenSpaceEventHandler from 'cesium/Source/Core/ScreenSpaceEventHandler';
+import ScreenSpaceEventType from 'cesium/Source/Core/ScreenSpaceEventType';
 import Cartesian2 from 'cesium/Source/Core/Cartesian2';
 import Cartesian3 from 'cesium/Source/Core/Cartesian3';
 import CesiumMath from 'cesium/Source/Core/Math';
 
 const altitude = 20000000;
 const maximumZoomDistance = 25000000;
+const minimumZoomDistance = 500;
 
 let interval;
 
@@ -13,6 +16,7 @@ export default class Camera extends React.Component {
     const { userLocation } = this.props;
     const { scene } = this.props.viewer;
 
+    scene.screenSpaceCameraController.minimumZoomDistance = minimumZoomDistance;
     scene.screenSpaceCameraController.maximumZoomDistance = maximumZoomDistance;
 
     scene.camera.setView({
@@ -23,6 +27,11 @@ export default class Camera extends React.Component {
         roll: 0.0
       }
     });
+
+    const doubleClickHandler = new ScreenSpaceEventHandler(scene.canvas);
+    doubleClickHandler.setInputAction(movement => {
+      this.props.viewer.trackedEntity = undefined;
+    }, ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
     scene.camera.moveEnd.addEventListener(this.clearMapCenterInterval);
     scene.camera.moveStart.addEventListener(this.getMapCenterOnInterval);
