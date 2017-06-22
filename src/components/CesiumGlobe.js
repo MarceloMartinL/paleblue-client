@@ -4,16 +4,12 @@ import Viewer from "cesium/Source/Widgets/Viewer/Viewer";
 import BingMapsImageryProvider from "cesium/Source/Scene/BingMapsImageryProvider";
 import CesiumTerrainProvider from "cesium/Source/Core/CesiumTerrainProvider";
 
-const BING_MAPS_URL = "//dev.virtualearth.net";
-const BING_MAPS_KEY =
-  "Ao8A_lsleN-M7elUZmPiMO0B0XkPBctzSPF7MCvoOTW7HmXLFR8KhqOsZymj_q7-";
-const STK_TERRAIN_URL = "//assets.agi.com/stk-terrain/world";
-
 import CameraContainer from "../containers/CameraContainer";
 import ContentDisplayContainer from "../containers/ContentDisplayContainer";
 import DotCollectionContainer from "../containers/DotCollectionContainer";
 import NewContentAnimationContainer from "../containers/NewContentAnimationContainer";
 import LikeAnimationContainer from "../containers/LikeAnimationContainer";
+import { BING_MAPS_URL, BING_MAPS_KEY, STK_TERRAIN_URL } from '../keys';
 const containerStyle = {
   width: "100%",
   height: "100%"
