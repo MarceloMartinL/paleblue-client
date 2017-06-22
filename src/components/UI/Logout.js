@@ -19,6 +19,8 @@ class Logout extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.isAuthed) {
       this.setState({ shouldDisplay: true });
+    } else {
+      this.setState({ shouldDisplay: false });
     }
   }
 
