@@ -1,3 +1,7 @@
+<a href="https://paleblue.surge.sh">
+  <img src="https://github.com/blackwright/paleblue-client/blob/master/public/paleblue.png?raw=true" alt="Paleblue logo" align="left" width="60" height="60">
+</a>
+
 # [paleblue](https://paleblue.surge.sh)
 
 A browser-based web application for sharing and experiencing user-submitted content, visualizing user locations around the planet, and emphasizing ephemeral interactions.
@@ -28,20 +32,20 @@ Although this application has features like those of a social network, it does n
 
 ![Zoom](https://github.com/blackwright/paleblue-client/blob/master/screenshots/zoom.jpg?raw=true)
 
-### Authentication
+## Authentication
 
 - Users must sign up before they can submit or like content.
 - Clicking the submit button while logged out will open the authentication dialog.
 
 ![Authentication](https://github.com/blackwright/paleblue-client/blob/master/screenshots/authentication.jpg?raw=true)
 
-- Signup form fields use live validation for immediate feedback.
-- Errors during login and signup are handled through Redux state.
 - Newly registered users receive a confirmation email for account verification.
+- Errors during login and signup are handled through the Redux store.
+- Signup form fields use live validation for immediate feedback.
 
 ![Signup](https://github.com/blackwright/paleblue-client/blob/master/screenshots/signup.jpg?raw=true)
 
-### Posting
+## Posting
 
 - Users may post written text.
 - Posts are created on the globe at the user's location.
@@ -72,7 +76,7 @@ Although this application has features like those of a social network, it does n
 
 ![Fullscreen](https://github.com/blackwright/paleblue-client/blob/master/screenshots/fullscreen.jpg?raw=true)
 
-### Liking
+## Liking
 
 - Registered users may like other users' posts.
 - Animated lines connect users to liked content.
@@ -82,7 +86,7 @@ Although this application has features like those of a social network, it does n
 
 ![Likes](https://github.com/blackwright/paleblue-client/blob/master/screenshots/likes.jpg?raw=true)
 
-### Demo Mode
+## Demo Mode
 
 - Both registered and unregistered users can activate demo mode, which presents a sampling of the app's features.
 - Simulated content is generated around the globe and can be liked by the user.
@@ -91,7 +95,7 @@ Although this application has features like those of a social network, it does n
 
 ![Demo form](https://github.com/blackwright/paleblue-client/blob/master/screenshots/demoform.jpg?raw=true)
 
-### Mobile
+## Mobile
 
 - The app responsively scales to screens of various sizes.
 
@@ -99,15 +103,15 @@ Although this application has features like those of a social network, it does n
 
 ![Mobile](https://github.com/blackwright/paleblue-client/blob/master/screenshots/mobile2.jpg?raw=true)
 
-### Technical Notes
+## Technical Notes
 
 - On startup, a Mongoose query displays only content submitted within 12 hours.
 - A websockets event is triggered when a user closes or leaves the page, setting a "last active" time on their account. If the user receives any likes while away from the app, those likes are rendered when the user returns.
 - Time and location data is fetched on hover via the Google Maps API.
 - Images are sent to AWS S3 directly from the browser, securely uploaded using a presigned URL from the server.
 
-### Developers
+## Developers
 
-[Jerry Gao](https://github.com/blackwright)
-[Nicolas Amaya](https://github.com/nicoasp)
-[Mark Hahn](https://github.com/markmarkyesyes)
+- [Jerry Gao](https://github.com/blackwright)
+- [Nicolas Amaya](https://github.com/nicoasp)
+- [Mark Hahn](https://github.com/markmarkyesyes)
