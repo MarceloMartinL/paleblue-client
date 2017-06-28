@@ -8,7 +8,7 @@ import { pulse, drawLine, distanceBetween, fadedLine } from '../helpers/animatio
 
 const velocity = 500;
 const pulseTimes = 2;
-const likeDuration = 1000 * 30;
+const likeDuration = 1000 * 60;
 const contentColor = Color.GOLD;
 const userStartColor = Color.PALETURQUOISE;
 const userEndColor = Color.DEEPSKYBLUE;
